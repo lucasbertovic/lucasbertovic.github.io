@@ -21,7 +21,7 @@ repository               : "lucasbertovic/lucasbertovic.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "profile-small.jpg"
   name             : "Lucas Bertovic"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
