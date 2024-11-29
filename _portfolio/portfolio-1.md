@@ -9,11 +9,17 @@ This is an item in your portfolio. It can be have images or nice text. If you na
 
 Code block
 
-```python
-def code_block(code):
-    return f"Hello, {code}!"
-    
-print(code_block("test"))
-```
+<details>
+  <summary>Click to view code</summary>
+  <pre><code>
+
+
+        def code_block(code):
+            return f"Hello, {code}!"
+            
+        print(code_block("test"))
+        ```
+ </code></pre>
+</details>
 
 End of code block
