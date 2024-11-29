@@ -79,8 +79,8 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 36px; /* set width for non-square avatars */
-  height: 36px; /* set height equal to width for a perfect circle */
+  width: 42px; /* set width for non-square avatars */
+  height: 42px; /* set height equal to width for a perfect circle */
 
   @include breakpoint($large) {
     display: block;
