@@ -13,12 +13,13 @@ Code block
   <summary>Click to view code</summary>
   <pre><code>
 
+    ```python
+    def code_block(code):
+        return f"Hello, {code}!"
+        
+    print(code_block("test"))
+    ```
 
-        def code_block(code):
-            return f"Hello, {code}!"
-            
-        print(code_block("test"))
-        ```
  </code></pre>
 </details>
 
