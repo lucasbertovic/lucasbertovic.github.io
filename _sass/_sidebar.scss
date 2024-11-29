@@ -79,19 +79,20 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
+  width: 36px; /* set width for non-square avatars */
+  height: 36px; /* set height equal to width for a perfect circle */
 
   @include breakpoint($large) {
     display: block;
-    width: auto;
-    height: auto;
+    width: 150px;  /* adjust to the desired size for larger screens */
+    height: 150px; /* keep the height equal to width to maintain circle */
   }
 
   img {
-    max-width: 175px;
-    border-radius: 50%;
+    width: 100%;     /* Make the image fill the container */
+    height: 100%;    /* Ensure the image fills the entire container */
+    object-fit: cover; /* Crop and cover the container with the image */
+    border-radius: 50%; /* Make the image circular */
 
     @include breakpoint($large) {
       padding: 5px;
