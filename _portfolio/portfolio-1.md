@@ -131,7 +131,7 @@ plt.show()
 ```
 
 <div style="text-align: center;">
-  <img src="/lucasbertovic.github.io/images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
+  <img src="../images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
 </div>
 
 The example above, considering only two securities, can be generalised to a universe of $ N $ securities. If we have $ N $ securities and a vector of weights $ \mathbf{w} $ (of length $ N $), where each $ w_i $ satisfies:
@@ -261,7 +261,7 @@ plt.title('Mean and Standard Deviation of Returns of Randomly Generated Portfoli
 plt.show()
 ```
 <div style="text-align: center;">
-  <img src="/images/MeanVarianceOptimisation2.png" alt="MeanVarianceOptimisation2" >
+  <img src="../images/MeanVarianceOptimisation2.png" alt="MeanVarianceOptimisation2" >
 </div>
 
 Below, we will use the `cvxopt` package to explicitly solve the mean-variance optimisation problem and calculate the efficient frontier. This optimisation will help us identify the set of portfolios that sit on the upper left boundary of the risk-return plot we generated earlier, representing the portfolios with the lowest risk for a given level of return.
@@ -383,7 +383,7 @@ plt.legend(['Portfolios', 'Efficient Frontier', 'Minimum Variance Portfolio'])
 plt.show()
 ```
 <div style="text-align: center;">
-  <img src="/images/MeanVarianceOptimisation3.png" alt="MeanVarianceOptimisation3" >
+  <img src="../images/MeanVarianceOptimisation3.png" alt="MeanVarianceOptimisation3" >
 </div>
 
 Up until this point, we have only considered risky securities within our universe of possible investments and have derived the set of optimal portfolios that invest solely in these risky assets. However, in reality, investors also have the option to invest in a risk-free asset, such as Treasury bills, which offer a guaranteed return. This introduces an additional component to the investment decision-making process.
@@ -437,7 +437,7 @@ plt.legend(['Portfolios', 'Efficient Frontier', 'Minimum Variance Portfolio',  '
 plt.show()
 ```
 <div style="text-align: center;">
-  <img src="/images/MeanVarianceOptimisation4.png" alt="MeanVarianceOptimisation4" >
+  <img src="../images/MeanVarianceOptimisation4.png" alt="MeanVarianceOptimisation4" >
 </div>
 
 The Capital Allocation Line (CAL) represents the set of portfolios that combine a risk-free asset with a risky portfolio. The slope of the CAL is crucial in portfolio theory, as it determines the trade-off between risk and return. It is equal to the **Sharpe Ratio** of the risky portfolio, which measures the risk-adjusted return of the portfolio.
@@ -515,7 +515,7 @@ plt.legend(['Portfolios', 'Capital Allocation Line', 'Optimal Portfolio'])
 plt.show()
 ```
 <div style="text-align: center;">
-  <img src="/images/MeanVarianceOptimisation5.png" alt="MeanVarianceOptimisation5" >
+  <img src="../images/MeanVarianceOptimisation5.png" alt="MeanVarianceOptimisation5" >
 </div>
 
 
