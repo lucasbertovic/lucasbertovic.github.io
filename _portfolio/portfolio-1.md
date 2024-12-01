@@ -5,23 +5,20 @@ collection: portfolio
 ---
 
 
-**Mean-variance optimisation** (MVO) is a cornerstone of modern portfolio theory and investment management, offering a systematic approach to balancing risk and return. It was introduced by economist **Harry Markowitz** in his groundbreaking 1952 paper titled *"Portfolio Selection"*, for which he later won the Nobel Prize in Economics in 1990. This theory revolutionised the way investors think about risk and return, providing a mathematical framework to build portfolios that maximise returns for a given level of risk, or alternatively, minimise risk for a desired level of return.
+Mean-variance optimisation (MVO) is a cornerstone of modern portfolio theory and investment management, offering a systematic approach to balancing risk and return. It was introduced by economist Harry Markowitz in his 1952 paper titled *"Portfolio Selection"*, for which he later won the Nobel Prize in Economics in 1990. This theory revolutionised the way investors think about risk and return, providing a mathematical framework to build portfolios that maximise returns for a given level of risk, or alternatively, minimise risk for a desired level of return. In this model, the objective is to select a mix of assets that *minimises the overall portfolio variance for a given level of expected return*, or conversely, *maximises the expected return for a given level of risk*.
 
-In this model, the objective is to select a mix of assets that **minimises the overall portfolio variance** for a given level of expected return, or conversely, **maximises the expected return** for a given level of risk.
+Markowitz provides a formal method for selecting the optimal portfolio by considering the correlation between assets. Prior to this theory, investment decisions were often based on individual asset returns and risk, without taking into account the relationship between different assets. Markowitz's work integrated the concept of diversification, demonstrating how combining assets with low or negative correlation could reduce the overall risk of a portfolio, even if the individual assets themselves were quite volatile.
 
-
-Harry Markowitz's **mean-variance optimisation** provides a formal method for selecting the optimal portfolio by considering the correlation between assets. Prior to this theory, investment decisions were often based on individual asset returns and risk, without taking into account the relationship between different assets. Markowitz's work integrated the concept of **diversification**, demonstrating how combining assets with low or negative correlation could reduce the overall risk of a portfolio, even if the individual assets themselves were quite volatile.
-
-In this post, we will explore the mathematics behind mean-variance optimisation and demonstrate its practical application using Python. To start, let’s consider a portfolio consisting of two assets, **S1** and **S2**. 
+In this post, we will explore the Markowitz/Mean-Variance Portfolio Optimisation and demonstrate its practical application using Python. To start, let’s consider an investment universe consisting of two assets, $S_1$ and $S_2$. 
 
 Let the characteristics of these assets be as follows:
 
-- Asset **S1** has an expected return of 5% ($ \mathbb{E}[R_1] = 0.05 $) and a variance of 0.02 ($\sigma_1^2 = 0.02$).
-- Asset **S2** has an expected return of 10% ($ \mathbb{E}[R_2] = 0.10 $) and a variance of 0.4 ($\sigma_2^2 = 0.4$).
+- Asset $S_1$ has an expected return of 5% ($ \mathbb{E}[R_1] = 0.05 $) and a variance of 0.02 ($\sigma_1^2 = 0.02$).
+- Asset $S_2$ has an expected return of 10% ($ \mathbb{E}[R_2] = 0.10 $) and a variance of 0.4 ($\sigma_2^2 = 0.4$).
 
-These are the basic **return** and **risk** characteristics when investing solely in one of the two assets. But the core question we want to address is: *What are the return and risk characteristics of a portfolio that invests in both assets simultaneously?*
+These are the basic return and risk characteristics when investing solely in one of the two assets. But the core question we want to address is: *What are the return and risk characteristics of a portfolio that invests in both assets simultaneously?*
 
-Assume that the portfolio allocates a proportion $ w_1 $ of its capital to **S1** and a proportion $ w_2 $ to **S2**, where $ w_1 + w_2 = 1 $, and both weights are positive. 
+Assume that the portfolio allocates a proportion $ w_1 $ of its capital to $S_1$ and a proportion $ w_2 $ to $S_2$, where $ w_1 + w_2 = 1 $, and both weights are positive. 
 
 The expected return of this portfolio, denoted as $ \mathbb{E}[R_p] $, is simply the weighted sum of the expected returns of the individual assets. We can see this by applying the linearity of expectation.
 
@@ -207,7 +204,7 @@ To illustrate the concepts of portfolio optimisation, we will consider a case in
 
 Next, we will simulate 100,000 random portfolio weight vectors (each of length 6 and summing to 1) to represent potential portfolios. For each portfolio, we calculate the expected return and variance of the portfolio
 
-To achieve this, we define and use two key functions: random_weights to generate random weight vectors and random_portfolios to compute the risk and return for each portfolio.
+To achieve this, we define and use two key functions: `random_weights` to generate random weight vectors and `random_portfolios` to compute the risk and return for each portfolio.
 
 ```python
 np.random.seed(123)
@@ -263,11 +260,13 @@ plt.show()
   <img src="/images/MeanVarianceOptimisation2.png" alt="MeanVarianceOptimisation2" >
 </div>
 
-Below, we will use the `cvxopt` package to explicitly solve the mean-variance optimisation problem and calculate the efficient frontier. This optimisation will help us identify the set of portfolios that sit on the upper left boundary of the risk-return plot we generated earlier, representing the portfolios with the lowest risk for a given level of return.
+The simulation of random portfolios results in a distribution of risk and return characteristics that forms an elliptical shape. Assuming rationality, investors aim to optimise their investment choices by either maximising returns for a given level of risk or minimising risk for a desired level of return. This optimisation leads them to select portfolios located on the upper boundary of the ellipse, as these offer the best possible trade-offs between risk and return. This boundary is known as the *Efficient Frontier*, representing the set of portfolios that are optimal under the principles of mean-variance optimisation
 
-We will begin by first calculating the **minimum variance portfolio (MVP)**. This is analogous to the left-most point in our simulation above. The minimum variance portfolio represents the portfolio with the lowest risk (variance) and is the starting point for the efficient frontier. This is the lowest expected return that a rational investor should target, because any target return lower than this would imply that there is a portfolio with the same risk but a higher expected return. Therefore, any portfolio with a return lower than the MVP would be considered suboptimal. We calculate the minimum variance portfolio using the  `sol_min_var = solvers.qp(S, opt.matrix(0.0, (n, 1)), G, h, A, b)` line in the function below.
+Below, we will use the `cvxopt` package to explicitly solve the mean-variance optimisation problem and calculate the efficient frontier. This optimisation will help us identify the set of portfolios that sit on the upper boundary of the risk-return plot we generated above, representing the portfolios with the lowest risk for a given level of return.
 
-The line of code above solves a **quadratic programming (QP)** problem, which is a type of optimisation problem where the objective function is quadratic (i.e., involving squared terms), and the constraints are linear. In the context of portfolio optimisation, we are solving for the portfolio weights $ \mathbf{w} $ that minimise the portfolio's variance, subject to constraints (as defined above).
+We will begin by first calculating the *minimum variance portfolio (MVP)*. This is analogous to the left-most point in our simulation above. The minimum variance portfolio represents the portfolio with the lowest risk (variance) and is the starting point for the efficient frontier. This is the lowest expected return that a rational investor should target, because any target return lower than this would imply that there is a portfolio with the same risk but a higher expected return. Therefore, any portfolio with a return lower than the MVP would be considered suboptimal. We calculate the minimum variance portfolio using the  `sol_min_var = solvers.qp(S, opt.matrix(0.0, (n, 1)), G, h, A, b)` line in the function below.
+
+The line of code above solves a *quadratic programming (QP)* problem, which is a type of optimisation problem where the objective function is quadratic (i.e., involving squared terms), and the constraints are linear. In the context of portfolio optimisation, we are solving for the portfolio weights $ \mathbf{w} $ that minimise the portfolio's variance, subject to constraints (as defined above).
 
 The inputs used in the `qp` function are as follows:
 
@@ -395,7 +394,7 @@ Consider the example below. In the first scenario, the investor selects the mini
 
 Notice that the dotted purple line lies above the dashed red line for all possible portfolio selections. This implies that, for any given target return, a portfolio from Portfolio Set 2 (the dotted purple line) will always have a smaller variance than a portfolio from Portfolio Set 1 (the dashed red line). While both of these risky portfolios are located on the efficient frontier, their efficiency is not the same when combined with the risk-free asset.
 
-In fact, we can observe that there are other possible risky portfolios that could generate a new line that even sits above the dotted purple line. As the slope of this line increases, the set of portfolios becomes more efficient, provided the line still intersects the efficient frontier. The most efficient choice of risky portfolio corresponds to the line that is tangent to the efficient frontier, and this portfolio is referred to as the Optimal Risky Portfolio. The line formed by combining the risk-free asset and the **Optimal Risky Portfolio** is called the **Capital Allocation Line (CAL)**.
+In fact, we can observe that there are other possible risky portfolios that could generate a new line that even sits above the dotted purple line. As the slope of this line increases, the set of portfolios becomes more efficient, provided the line still intersects the efficient frontier. The most efficient choice of risky portfolio corresponds to the line that is tangent to the efficient frontier, and this portfolio is referred to as the Optimal Risky Portfolio. The line formed by combining the risk-free asset and the *Optimal Risky Portfolio* is called the *Capital Allocation Line (CAL)*.
 
 ```python
 plt.figure(figsize=(12, 6))
