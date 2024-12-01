@@ -4,8 +4,6 @@ excerpt: "Short description of portfolio item number 1<br/><img src='/images/Mea
 collection: portfolio
 ---
 
-### Mean-Variance Portfolio Optimisation
-
 **Mean-variance optimisation** (MVO) is a cornerstone of modern portfolio theory and investment management, offering a systematic approach to balancing risk and return. It was introduced by economist **Harry Markowitz** in his groundbreaking 1952 paper titled *"Portfolio Selection"*, for which he later won the Nobel Prize in Economics in 1990. This theory revolutionised the way investors think about risk and return, providing a mathematical framework to build portfolios that maximise returns for a given level of risk, or alternatively, minimise risk for a desired level of return.
 
 In this model, the objective is to select a mix of assets that **minimises the overall portfolio variance** for a given level of expected return, or conversely, **maximises the expected return** for a given level of risk.
