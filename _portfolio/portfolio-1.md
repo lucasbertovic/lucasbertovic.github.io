@@ -131,7 +131,7 @@ plt.show()
 ```
 
 <div style="text-align: center;">
-  <img src="../images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
+  <img src="/images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
 </div>
 
 The example above, considering only two securities, can be generalised to a universe of $ N $ securities. If we have $ N $ securities and a vector of weights $ \mathbf{w} $ (of length $ N $), where each $ w_i $ satisfies:
@@ -261,7 +261,7 @@ plt.title('Mean and Standard Deviation of Returns of Randomly Generated Portfoli
 plt.show()
 ```
 <div style="text-align: center;">
-  <img src="../images/MeanVarianceOptimisation2.png" alt="MeanVarianceOptimisation2" >
+  <img src="/images/MeanVarianceOptimisation2.png" alt="MeanVarianceOptimisation2" >
 </div>
 
 Below, we will use the `cvxopt` package to explicitly solve the mean-variance optimisation problem and calculate the efficient frontier. This optimisation will help us identify the set of portfolios that sit on the upper left boundary of the risk-return plot we generated earlier, representing the portfolios with the lowest risk for a given level of return.
