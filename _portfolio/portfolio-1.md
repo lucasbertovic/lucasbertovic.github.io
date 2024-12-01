@@ -15,8 +15,8 @@ In this post, we will explore the mathematics behind mean-variance optimisation 
 
 Let the characteristics of these assets be as follows:
 
-- Asset **S1** has an expected return of 5% ($\mathbb{E}[R_1] = 0.05$) and a variance of 0.02 ($\sigma_1^2 = 0.02$).
-- Asset **S2** has an expected return of 10% ($\mathbb{E}[R_2] = 0.10$) and a variance of 0.4 ($\sigma_2^2 = 0.4$).
+- Asset **S1** has an expected return of 5% (\(\mathbb{E}[R_1] = 0.05\)) and a variance of 0.02 (\(\sigma_1^2 = 0.02\)).
+- Asset **S2** has an expected return of 10% (\(\mathbb{E}[R_2] = 0.10\)) and a variance of 0.4 (\(\sigma_2^2 = 0.4\)).
 
 These are the basic **return** and **risk** characteristics when investing solely in one of the two assets. But the core question we want to address is: *What are the return and risk characteristics of a portfolio that invests in both assets simultaneously?*
 
