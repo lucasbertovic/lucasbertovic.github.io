@@ -131,7 +131,7 @@ plt.show()
 ```
 
 <div style="text-align: center;">
-  <img src="/images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
+  <img src="/lucasbertovic.github.io/images/MeanVarianceOptimisation1.png" alt="MeanVarianceOptimisation1" >
 </div>
 
 The example above, considering only two securities, can be generalised to a universe of $ N $ securities. If we have $ N $ securities and a vector of weights $ \mathbf{w} $ (of length $ N $), where each $ w_i $ satisfies:
