@@ -1,6 +1,6 @@
 ---
 title: "Mean-Variance Portfolio Optimisation"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/MeanVarianceOptimisation3.png'>"
+excerpt: "Implementation of Mean-Variance Portfolio Optimization. Efficient Frontier, Capital Allocation Line, and visualisation of optimal portfolios<br/><img src='/images/MeanVarianceOptimisation3.png'>"
 collection: portfolio
 ---
 
